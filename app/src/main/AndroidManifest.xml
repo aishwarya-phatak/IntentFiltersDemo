@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.intentfiltersdemo">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IntentFiltersDemo"
+        tools:targetApi="31">
+
+       <activity
+            android:name=".YourImageActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="in.bitcode.media.VIEW" />
+                <action android:name="in.bitcode.media.VIEW" />
+                <action android:name="in.bitcode.media.DISPLAY" />
+
+                <category android:name="in.bitcode.category.TECH" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".MyImageActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="in.bitcode.media.VIEW" />
+                <action android:name="in.bitcode.media.SHOW" />
+                <action android:name="in.bitcode.media.DISPLAY" />
+
+                <category android:name="in.bicode.category.TECH" />
+
+                <data
+                    android:mimeType="image/jpeg"
+                    android:scheme="file" />
+                <data
+                    android:mimeType="image/*"
+                    android:scheme="file" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
